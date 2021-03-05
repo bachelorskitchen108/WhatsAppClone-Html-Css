@@ -1,0 +1,566 @@
+/* -----Default Styles----- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    overflow-y: auto;
+}
+
+html {
+    /* Normal font-size is 100% then 1rem is 16px  */
+    font-size: 62.5%;
+    /* now 1rem = 10px */
+}
+
+body {
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Lucida, Grande, Arial, Ubuntu, Cantarell, Fira Sans, Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --Variables-- */
+
+:root {
+    --white: #ffffff;
+    --text-gray: #919191;
+    --background-green: #009688;
+    --background-cream: #dadbd4;
+    --sidebar-header: #EDEDED;
+    /* --notification-text-color: #343738; */
+    --notification-background-color: rgb(157,225,254);
+    --notification-text-color: rgba(48, 48, 48, 0.96);
+    --notification-link-color: rgba(48, 48, 48, 0.85);
+    --search-bar-bg: #f6f6f6;
+    --search-bar-border-color:rgba(0,0,0,0.1);
+    --chat-border: #ededed;
+    --whatsapp-green: #3ccc2f;
+    --scroll-bar-color: #b3adadea;
+    --chat-window-scrollbar-color: #bab3ae;
+    --box-shadow-color: #d5d5d5;
+    --chat-hover-color: #eeeded;
+    --chat-active-color: #dfdede;
+    --chat-window-cream: #e5ddd5;
+    --message-green: #dcf8c8;
+    --message-bar: #f0f0f0;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --app-boxshadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ----------Main ---------- */
+
+.grid {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 12.8rem 1fr;
+}
+
+/* -----App Background  Start---- */
+
+.top {
+    background: var(--background-green);
+    /* --Here 1 represents left side and -1 represents right side So from left to right complete */
+    grid-column: 1 / -1;
+    /* ---- page is divided in rows top will start at row 1 and ends at row 2---  */
+    grid-row: 1 / 2;
+}
+
+.bottom {
+    background: var(--background-cream);
+    /* --Here 1 represents left side and -1 represents right side So from left to right complete */
+    grid-column: 1 / -1;
+    /* ---- page is divided in rows top will start at row 2 and ends at row -1 here (-1) will represents bottom most row --- */
+    grid-row: 2 / -1;
+}
+
+/* -----App Background End's---- */
+
+/* -----App  Start's---- 3rd child of grid  */
+
+.app {
+    display: grid;
+    grid-template-columns: 42rem 1fr;
+    /* ----from left to right complete 42rem streach ---*/
+    grid-column: 1 / -1;
+    /* ---From top to bottom ----- */
+    grid-row: 1 / -1;
+    width: 139.8rem;
+    /* ----top & bottom 2rem and left&right auto-- */
+    margin: 3rem auto;
+    border: 1px solid var(--border-color);
+    /* ---h-offset = 0 , v-offset= 0, blur = 1rem, spread= 0.05rem, color lightblack; */
+    box-shadow: 0 0 1rem 0.05rem var(--app-boxshadow-color);
+}
+
+/* -----SIdebar Start's---- */
+
+.sidebar {
+    grid-column: 1 / 2;
+    background: var(--white);
+    border-right: 1px solid var(--border-color);
+    overflow-y: hidden;
+}
+
+/* -----SIdebar Header Start's---- */
+
+.sidebar-header {
+    background: var(--sidebar-header);
+    display: flex;
+    justify-content: space-between;
+    height: 6rem;
+    padding: 1rem 2rem;
+}
+
+/* ----Profile-Image---- */
+
+.sidebar-header>img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* ----Sidebar-header icons start's---- */
+
+.sidebar-header-icons {
+    display: flex;
+    align-items: center;
+    flex:1;
+    justify-content: flex-end;
+    cursor:pointer;
+    margin-right: 5px;
+}
+.sidebar-header-icons img:nth-child(2) {
+    margin: 0 3rem;
+}
+
+.sidebar-header-icons img:active{
+    background: var(--box-shadow-color);
+    border-radius: 50%;
+    box-shadow: 0 0 1px 8px var(--box-shadow-color);
+}
+
+/* ----Sidebar-header icons end's---- */
+
+/* ----Sidebar-header Notification  Start's---- */
+.sidebar-notifications{
+    display:flex;
+    align-items:center;
+    background: var(--notification-background-color);
+    height:9rem;
+    padding: 0 2rem;
+    cursor: pointer;
+}
+.sidebar-notifications > img{
+        margin-right: 2rem;
+}
+.sidebar-notification-message{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+.sidebar-notification-message span{
+    font-size:1.6rem;
+    color:var(--notification-text-color)
+}
+.sidebar-notification-message span:hover{
+    text-decoration: underline;
+}
+.sidebar-notification-message a{
+    text-decoration: underline;
+    font-size: 1.4rem;
+    color:var(--notification-link-color);
+}
+.sidebar-notification-message img{
+    vertical-align: middle;
+    margin-left: 1px;
+}
+/* ----Sidebar-header Notification end's---- */
+
+/* -----SIdebar Header End's---- */
+/* ----Sidebar Search Start's---- */
+.search {
+    background: var(--search-bar-bg);
+    border-bottom: 1px solid var(--search-bar-border-color);
+
+}
+.search-bar{
+    display: flex;
+    padding:1rem;
+    border-bottom: 1px solid var(--chat-border);
+}
+.search-bar > img {
+    width:2.8rem;
+    background:var(--white);
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    padding-left: 1rem;
+}
+.search-bar input{
+    outline:none;
+    border:none;
+    padding:1rem 1rem 1rem 2rem;
+    flex-grow:1;
+    border-top-right-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    font-family: "Segoe UI";    
+}
+.search-bar input::placeholder{
+    color:var(--text-gray);
+    text-align: center;
+}
+
+/* ----Sidebar Search End's---- */
+/* ---Sidebar Chats Start's------------ */
+.sidebar-chats{
+    height:48rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.sidebar-chats::-webkit-scrollbar{
+    width:0.7rem;
+    height:3rem;
+}
+.sidebar-chats::-webkit-scrollbar-thumb{
+background-color: var(--scroll-bar-color);
+}
+.chat{
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    padding:1rem 0 0 2rem;
+    cursor: pointer;
+}
+.chat:hover{
+    background: var(--chat-hover-color);
+}
+.chat:hover .chat-options{
+    display: initial;
+}
+.active-chat{
+    background: var(--chat-active-color);
+}
+.chat-left img{
+    width:5rem;
+    height:5rem;
+    border-radius:50%;
+}
+
+.chat-right{
+   flex:1;
+   display:flex;
+   flex-direction:column;
+   margin-left: 1.5rem;
+   padding-right: 2rem;
+   padding-bottom: 1rem;
+   border-bottom: 1px solid var(--chat-border);
+}
+.chat:last-of-type .chat-right{
+    border-bottom: none;
+}
+.chat:last-of-type{
+    margin-bottom: 2rem;
+}
+.chat-right-top{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom: 0.5rem;
+}
+.contact-name{
+    font-size: 1.7rem;
+}
+
+.chat-message,
+.chat-message-typing,
+.chat-message-group{
+    font-size:1.5rem;
+    margin-left: 0.4rem;
+}
+.chat-message-custom,
+.chat-message,
+.chat-message-group{
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    max-width: 28rem;
+}
+.chat-message-group{
+    font-weight: 500;
+    color:inherit;
+}
+.chat-message{
+    color:var(--text-gray);
+}
+.chat-message-custom{
+font-size: 1.5rem;
+margin-left: -0.2rem;
+}
+
+.chat-date,
+.chat-time{
+    font-family: 'Segoe UI' ;
+    font-size: 1.2rem;
+    color:var(--text-gray);
+}
+
+.chat-right-bottom{
+    display: flex;
+}
+.chat-right-bottom-left{
+    display: flex;
+    align-items: flex-end;
+    flex-grow: 1;
+}
+.chat-right-bottom-rigth{
+    display: flex;
+    align-items: center;
+}
+.unread-message-number{
+    display: inline-block;
+    width:2rem;
+    height:2rem;
+    background:var(--whatsapp-green);
+    color:var(--white);
+    font-weight: 500;
+    border-radius:50%;
+    line-height:2rem;
+    text-align:center;
+}
+.chat-options{
+    display: none;
+    margin-left: 0.5rem;
+}
+.chat-options img{
+    vertical-align: middle;
+}
+
+.single-check-mark,
+.double.check-mark{
+    margin-right: 1.5rem;
+}
+.single-check-mark{
+    width:1.4rem;
+}
+.double.check-mark{
+    width:2rem;
+}
+.image-icon,
+.microphone-icon{
+    margin-right:0.3rem;
+    margin-left:0.2rem;
+}
+
+/* ---Sidebar Chats End's------------ */
+
+/* -----SIdebar End's---- */
+/* ------Main-chating-window-header Classes------ */
+/* main */        
+/* chating-window-header */
+/* chating-window-header-left */
+/* chating-contact-image */
+/* chating-contact-name-and-status */
+/* chating-contact-name */
+/* chating-contact-status */
+/* chating-window-header-right */
+/* chating-window-header-search-icon */
+/* chating-window-header-menu-icon */
+/* ------Main-chating-window-header Start's----- */
+.main{
+    grid-column: 2 / -1;
+    background:var(--chat-window-cream);
+    position: relative;
+    border:none;
+
+}
+.chating-window-header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height:6rem;
+    padding:1rem 2rem;
+    background: var(--sidebar-header);
+    cursor: pointer;
+}
+.chating-window-header-left{
+    display: flex;
+    align-items:center;
+}
+.chating-contact-image{
+    width:4rem;
+    height:4rem;
+    border-radius:50%;
+    margin-right: 1.5rem;
+    cursor:pointer;
+}
+.chating-contact-name-and-status {
+    display: flex;
+    flex-direction:column;
+}
+.chating-contact-name {
+    font-size: 1.7rem;
+}
+.chating-contact-status{
+    color:var(--text-gray);
+    font-size:1.3rem;
+}
+.chating-window-header-menu-icon{
+    margin-left: 2rem;
+}
+.chating-window-header-menu-icon:active {
+    background: var(--box-shadow-color);
+    border-radius:50%;
+    box-shadow:0 0 1px 8px var(--box-shadow-color);
+}
+/* ------Chating Window classes ---- */
+/* chating-window */
+/* ------Chating Window  Start's---- */
+.chating-window {
+    display: flex;
+    flex-direction:column;
+    padding:10rem 10rem 6rem 10rem;
+    height:62rem;
+    overflow: scroll;
+    overflow-x: hidden;
+    background:url(../images/bg-chat.png);
+    background-repeat: repeat;
+}
+.chating-window::-webkit-scrollbar{
+    width:0.7rem;
+    height: 3rem;
+}
+.chating-window::-webkit-scrollbar-track{
+    background: var(--chat-window-cream);
+}
+.chating-window::-webkit-scrollbar-thumb{
+background: var(--chat-window-scrollbar-color);
+}
+/* -----Venuanna Message  classes--- */
+/* venuanna */
+/* venuanna-icon */
+/* venuanna-message */
+/* message-time -common*/
+/* message-status */
+/* -------------Common Styling------- */
+.venuanna,
+.me{
+    border-radius: 0.5rem;
+    padding:0.8rem 1rem;
+    margin-bottom: 2rem;
+    position:relative;
+}
+.venuanna-message,
+.me-message{
+font-size: 1.4rem;
+margin-right: 1.2rem;
+}
+.message-time{
+    color: var(--text-gray);
+    font-size:1.08rem;
+}
+.message-status img{
+    vertical-align:bottom;
+}
+.venuanna-icon,
+.me-icon{
+    width:0.8rem;
+    height:1.3rem;
+    position: absolute;
+    top:0;
+}
+/* ---Vennu-anna-Messages Start's---- */
+
+.venuanna{
+    background: var(--message-green);
+    align-self: flex-end;
+}
+.venuanna-icon{
+    width:0.8rem;
+    height:1.3rem;
+    position: absolute;
+    top:0;
+}
+
+/* ---Vennu-anna-Messages End's---- */
+/* -------Me Message Classes----- */
+/* me */
+/* me-icon */
+/* me-message */
+/* ------Me Message Start's------- */
+.me{
+    background: var(--white);
+    align-self: flex-start;
+}
+.me-icon{
+    left:0.5rem;
+}
+#map{
+    margin-right: 0;
+}
+.center-date{
+    width:6.5rem;
+    height:2rem;
+    border-radius:10%;
+    padding:0.3rem 1rem;
+    background:#E1F3FB;
+    display:flex;
+    align-self: center;
+}
+.blue-date{
+    font-size:1rem;
+    color:var(--text-gray);
+}
+/* ------Me Message End's------- */
+/* ------Chating Window  End's---- */
+/* ------Main-chating-window-header End's----- */
+/* -----Message-bar-classes----- */
+/* message-bar */
+/* message-bar-left */
+/* message-bar-center */
+/* message-bar-right */
+/* ----Message-bar Start's------ */
+.message-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display:flex;
+    background: var(--message-bar);
+    padding:1rem 2rem;
+    justify-content: space-between;
+    align-items:center;
+    z-index: 200;
+}
+.message-bar-left  img{
+    margin-right: 2rem;
+}
+
+.message-bar-center{
+    flex-grow: 1;
+}
+.message-bar-center input{
+    width:100%;
+    outline:none;
+    border:none;
+    padding:1rem 1rem 1rem 2rem;
+    flex-grow: 1;
+    border-radius:2rem;
+    font-family: "Segoe UI";
+    font-size: 1.5rem;
+}
+.message-bar-right{
+    margin-left: 2rem;
+}
+/* ----Message-bar End's------ */
+/* --------Main End's-------- */
+
+/* -----App  End's---- */
